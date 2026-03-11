@@ -38,6 +38,7 @@ process PICARD_COLLECTMULTIPLEMETRICS {
         ${args} \\
         --INPUT ${bam} \\
         --OUTPUT ${prefix}.CollectMultipleMetrics \\
+        --PROGRAM CollectGcBiasMetrics \\
         ${reference}
     """
 
@@ -54,5 +55,8 @@ process PICARD_COLLECTMULTIPLEMETRICS {
     touch ${prefix}.CollectMultipleMetrics.quality_by_cycle.pdf
     touch ${prefix}.CollectMultipleMetrics.insert_size_histogram.pdf
     touch ${prefix}.CollectMultipleMetrics.quality_distribution_metrics
+    touch ${prefix}.CollectMultipleMetrics.gc_bias.summary_metrics
+    touch ${prefix}.CollectMultipleMetrics.gc_bias.pdf
+    touch ${prefix}.CollectMultipleMetrics.gc_bias.detail_metrics
     """
 }
